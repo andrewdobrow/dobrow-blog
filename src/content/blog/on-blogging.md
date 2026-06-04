@@ -1,6 +1,6 @@
 ---
-title: 'I'm tired of WordPress, so here we are...'
-description: 'I've used WordPress for blogging most of my internet life. It was time for a change.'
+title: "I'm tired of WordPress, so here we are..."
+description: "I've used WordPress for blogging most of my internet life. It was time for a change."
 pubDate: 2026-06-03
 tags: ['blogging']
 ---
