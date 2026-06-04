@@ -1,20 +1,91 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import { getCollection, render } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
 }
-type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={post.data.title} description={post.data.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <div class="post-header">
+          {post.data.tags?.[0] && <div class="tag">{post.data.tags[0]}</div>}
+          <h1>{post.data.title}</h1>
+          <div class="meta">
+            Andrew Dobrow &nbsp;·&nbsp;
+            {post.data.pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </div>
+        </div>
+        <div class="prose">
+          <Content />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<style>
+  .post-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid #e0e0e0;
+  }
+
+  .tag {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 26px;
+    line-height: 1.35;
+    letter-spacing: -0.4px;
+    margin-bottom: 0.6rem;
+  }
+
+  .meta {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #999;
+  }
+
+  .prose {
+    font-size: 18px;
+    line-height: 1.75;
+    color: #1a1a1a;
+  }
+
+  .prose p { margin-bottom: 1.5rem; }
+
+  .prose h2 {
+    font-size: 20px;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose h3 {
+    font-size: 18px;
+    margin: 1.5rem 0 0.5rem;
+  }
+</style>
