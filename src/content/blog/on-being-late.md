@@ -1,6 +1,6 @@
 ---
-title: 'Don't be late.'
-description: 'Being late communicates one thing: your time is more important than mine.'
+title: "Don't be late."
+description: "Being late communicates one thing: your time is more important than mine."
 pubDate: 2026-06-04
 tags: ['manners,punctuality']
 ---
