@@ -1,5 +1,5 @@
 ---
-title: "It's hard to be a entrepreneur."
+title: "It's hard to be an entrepreneur."
 description: "I just want all the work to pay off."
 pubDate: 2026-06-11
 tags: ['entrepreneurship']
