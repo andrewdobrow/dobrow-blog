@@ -21,8 +21,8 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
           <div class="eyebrow">Hello, I'm</div>
           <h1 class="p-name">Andrew Dobrow</h1>
           <p class="intro-subtitle">Publisher. Builder. Writer. Curious about almost everything.</p>
-          <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a>, build things for the web, and occasionally write about what I've learned along the way.</p>
-          <p>This is my little corner of the internet — notes on projects, work, the things I care about, and whatever else is on my mind.</p>
+          <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a> and occasionally write about what I've learned along the way.</p>
+          <p>This is my little corner of the internet. Notes on projects, work, the things I care about, and whatever else is on my mind.</p>
           <a href="/about/" class="inline-arrow">A little more about me <span aria-hidden="true">→</span></a>
           <a class="u-url sr-only" href="https://dobrow.blog/">Personal website</a>
         </div>
@@ -40,7 +40,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
         <div class="now-card-bottom">
           <div>
             <h2 id="now-card-heading">What I'm up to lately</h2>
-            <p>Growing a local news site, refining its iPhone app, and figuring out what to build next.</p>
+            <p>Growing a Treasure Coast Today, a next-gen local news site, releasing its iPhone app, and figuring out what to build next.</p>
           </div>
           <a href="/now/" class="inline-arrow">Read my now page <span aria-hidden="true">→</span></a>
         </div>
@@ -55,10 +55,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
         {posts.length === 0 && <p>Nothing published yet. Check back soon.</p>}
       </section>
 
-      <section class="bottom-note" aria-labelledby="elsewhere-title">
-        <h2 id="elsewhere-title">Other places I spend my time</h2>
-        <p><a href="https://treasurecoast.today/">Treasure Coast Today ↗</a> · <a href="https://lowsignal.dev/">Low Signal Labs ↗</a> · <a href="https://github.com/andrewdobrow" rel="me">GitHub ↗</a></p>
-      </section>
+    
     </main>
     <Footer />
   </body>
