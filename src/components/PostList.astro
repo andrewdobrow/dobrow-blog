@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { posts: CollectionEntry<'blog'>[]; }
+const { posts } = Astro.props;
+const formatDate = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+<div class="post-list">
+  {posts.map((post) => (
+    <article class="post-row h-entry">
+      <div class="post-copy">
+        <div class="post-meta"><time class="dt-published" datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>{post.data.tags?.[0] && <span class="category">{post.data.tags[0]}</span>}</div>
+        <h3><a class="u-url p-name" href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+        <p class="p-summary">{post.data.description}</p>
+      </div>
+      <a class="post-go" href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}><span aria-hidden="true">↗</span></a>
+    </article>
+  ))}
+</div>
+<style>
+.post-list { border-top: 1px solid var(--line); }
+.post-row { display: flex; justify-content: space-between; gap: 24px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.post-meta { display: flex; align-items: baseline; gap: 13px; flex-wrap: wrap; margin-bottom: 6px; font-size: .78rem; color: var(--muted); }
+.category { color: var(--accent); background: var(--accent-soft); font-size: .68rem; letter-spacing: .03em; font-weight: 640; border-radius: 4px; padding: 1px 8px; }
+h3 { margin: 0 0 6px; font-size: 1.1rem; letter-spacing: -.025em; line-height: 1.38; }
+h3 a { color: var(--ink); text-decoration: none; }
+h3 a:hover { color: var(--accent); }
+.p-summary { color: var(--muted); font-size: .9rem; line-height: 1.6; margin: 0; }
+.post-go { color: var(--muted); font-size: 1.2rem; text-decoration: none; padding: 3px 3px 10px; }
+.post-go:hover { color: var(--accent); }
+@media (max-width: 600px) { .post-row { padding: 20px 0; } }
+</style>

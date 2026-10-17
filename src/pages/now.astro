@@ -1,0 +1,42 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+<!doctype html>
+<html lang="en">
+  <head><BaseHead title={`Now — ${SITE_TITLE}`} description="What Andrew Dobrow is working on and thinking about right now." /></head>
+  <body>
+    <Header />
+    <main>
+      <header class="page-heading">
+        <div class="eyebrow">A snapshot in time</div>
+        <h1>Now</h1>
+        <p>What I'm focused on lately, outside of the usual day-to-day. <span class="updated">Updated October 16, 2026.</span></p>
+      </header>
+      <article class="prose now-content">
+        <p>I've always got several ideas competing for my attention. These are the ones getting most of it right now.</p>
+
+        <h2>Currently building</h2>
+        <p><strong><a href="https://treasurecoast.today/">Treasure Coast Today</a></strong> — The local news site I started in June 2026. Most days involve some combination of editorial work, improving the technology behind it, and finding new ways to reach readers and support the business.</p>
+        <p><strong>The Treasure Coast Today iPhone app</strong> — Making local news easier to read and discover on a phone, with a better native experience.</p>
+        <p><strong><a href="https://lowsignal.dev/">Low Signal Labs</a></strong> — A home for my experiments in websites and digital products.</p>
+
+        <h2>Currently focused on</h2>
+        <p>Growing an independent business without losing sight of why I wanted to work for myself in the first place. I'm especially interested in the intersection of local journalism, practical technology, and product development.</p>
+
+        <h2>Outside the browser</h2>
+        <p>Family, life on Florida's Treasure Coast, and my work as a Florida mobile and remote online notary.</p>
+
+        <p class="now-explainer">This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">/now page</a>: a simple, periodically updated answer to “what are you up to these days?”</p>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+.updated { white-space: nowrap; color: #87918b; font-size: .84rem; }
+.now-content strong { font-weight: 700; }
+.now-explainer { border-top: 1px solid var(--line); margin-top: 40px !important; padding-top: 20px; color: var(--muted); font-size: .87rem; }
+</style>

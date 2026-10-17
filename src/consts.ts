@@ -1,5 +1,5 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = 'dobrow.blog';
-export const SITE_DESCRIPTION = 'Writing by Andrew Dobrow.';
+export const SITE_TITLE = 'Andrew Dobrow';
+export const SITE_DESCRIPTION = 'Personal notes on building things, local news, the web, and everything in between.';
+export const SITE_URL = 'https://dobrow.blog';
+export const AVATAR_PATH = '/images/andrew-dobrow.jpg';
+export const WEBMENTION_ENDPOINT = 'https://webmention.io/dobrow.blog/webmention';

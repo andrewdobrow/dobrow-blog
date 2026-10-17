@@ -1,23 +1,23 @@
 ---
-const today = new Date();
+const year = new Date().getUTCFullYear();
 ---
-<footer>
+<footer class="site-footer">
   <div class="footer-inner">
-    <span>&copy; {today.getFullYear()} Andrew Dobrow</span>
+    <div class="footer-links">
+      <a href="/rss.xml">RSS <span aria-hidden="true">↗</span></a>
+      <a href="https://github.com/andrewdobrow" rel="me noopener noreferrer" target="_blank">GitHub <span aria-hidden="true">↗</span></a>
+      <a href="https://www.linkedin.com/in/andrewdobrow/" rel="noopener noreferrer" target="_blank">LinkedIn <span aria-hidden="true">↗</span></a>
+      <a href="https://x.com/andrewdobrow" rel="me noopener noreferrer" target="_blank">X <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="copyright">© {year} Andrew Dobrow. Made for the open web.</div>
   </div>
 </footer>
-
 <style>
-  footer {
-    border-top: 0.5px solid #e0e0e0;
-    margin-top: 4rem;
-  }
-  .footer-inner {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 1.5rem 1.25rem;
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    color: #999;
-  }
+.site-footer { border-top: 1px solid var(--line); }
+.footer-inner { width: min(calc(100% - 44px), var(--width)); margin: auto; padding: 25px 0 35px; display: flex; justify-content: space-between; gap: 16px 30px; align-items: center; flex-wrap: wrap; }
+.footer-links { display: flex; gap: 19px; align-items: center; flex-wrap: wrap; }
+.footer-links a { font-size: .82rem; color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--accent); }
+.copyright { font-size: .76rem; color: var(--muted); }
+@media (max-width: 600px) { .footer-inner { width: min(calc(100% - 36px), var(--width)); flex-direction: column; align-items: flex-start; } }
 </style>

@@ -1,63 +1,40 @@
-# Astro Starter Kit: Blog
+# dobrow.blog
+
+Personal site of Andrew Dobrow, built with **Astro 6** and plain CSS. Main routes:
+
+- `/` — short introduction, profile photo, Now preview and recent writing
+- `/blog/` — full blog archive
+- `/blog/<slug>/` — existing Markdown posts, individual webmentions
+- `/now/` — what I'm doing lately
+- `/about/` — personal background and projects
+- `/rss.xml` — RSS feed
+
+## Development
+
+Node.js 22.12+ is required.
 
 ```sh
-npm create astro@latest -- --template blog
+npm ci
+npm run dev
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The production URL is set in `astro.config.mjs` to `https://dobrow.blog`.
 
-Features:
+## Editing
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- **New posts:** create `.md` files in `src/content/blog/` with `title`, `description`, `pubDate`, and optional `tags`. Published slugs are file names.
+- **Now page:** edit `src/pages/now.astro`; update its visible date whenever you change the contents. The home page's Now teaser is in `src/pages/index.astro`.
+- **Bio:** edit `src/pages/index.astro` and `src/pages/about.astro`.
+- **Avatar:** add `public/images/andrew-dobrow.jpg`, which will be served at `/images/andrew-dobrow.jpg`; until then, the home page uses fallback initials.
+- **Navigation and colors:** `src/components/Header.astro` and `src/styles/global.css`.
 
-## 🚀 Project Structure
+## Webmentions
 
-Inside of your Astro project, you'll see the following folders and files:
+Incoming webmention discovery is installed in `src/components/BaseHead.astro`, and the per-post browser viewer is `src/components/Webmentions.astro`. **You must claim/activate the domain at webmention.io** to receive mentions. Outgoing mentions can be manually sent *after deployment* with `npm run webmentions:send` (latest RSS entry), or `npm run webmentions:send -- https://dobrow.blog/blog/your-post/` (specific live article).
 
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+See **`WEBMENTIONS_SETUP.md`** for the exact setup, identity verification, privacy and moderation considerations, and outgoing mentions.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy verification
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+`.github/workflows/astro-check.yml` runs `npm ci` and `npm run build` on pushes and pull requests. This is a check only; it **does not deploy** the website. Continue using your existing hosting/deployment process.

@@ -1,0 +1,118 @@
+---
+interface Props { target: string; }
+const { target } = Astro.props;
+---
+<section class="webmentions" aria-labelledby="webmentions-title" data-target={target}>
+  <div class="wm-heading">
+    <h2 id="webmentions-title">Around the web <span class="wm-count" hidden></span></h2>
+    <span class="wm-badge">Webmentions</span>
+  </div>
+  <p class="wm-intro">If you link to this post from your own site, your response can appear here.</p>
+  <div class="wm-list" aria-live="polite"></div>
+  <p class="wm-empty">No webmentions yet.</p>
+  <p class="wm-footnote"><a href="https://indieweb.org/Webmention" target="_blank" rel="noopener noreferrer">What are webmentions? ↗</a></p>
+</section>
+<script>
+  // Public single-target API; no account token is embedded in the website.
+  const sections = document.querySelectorAll<HTMLElement>('.webmentions[data-target]');
+  for (const section of sections) {
+    const target = section.dataset.target;
+    if (!target) continue;
+    const list = section.querySelector<HTMLElement>('.wm-list');
+    const empty = section.querySelector<HTMLElement>('.wm-empty');
+    const counter = section.querySelector<HTMLElement>('.wm-count');
+    if (!list || !empty || !counter) continue;
+    const api = new URL('https://webmention.io/api/mentions.jf2');
+    api.searchParams.set('target', target);
+    api.searchParams.set('per-page', '100');
+    api.searchParams.set('sort-dir', 'down');
+
+    const safeUrl = (input: unknown): string | undefined => {
+      if (typeof input !== 'string') return undefined;
+      try {
+        const url = new URL(input);
+        return ['https:', 'http:'].includes(url.protocol) ? url.href : undefined;
+      } catch { return undefined; }
+    };
+    const labelFor = (verb: string) => {
+      const verbs: Record<string, string> = { 'like-of': 'liked', 'repost-of': 'reposted', 'bookmark-of': 'bookmarked', 'in-reply-to': 'replied to', 'mention-of': 'mentioned', 'rsvp': 'responded to' };
+      return verbs[verb] ?? 'mentioned';
+    };
+    const appendText = (node: HTMLElement, tag: 'span' | 'p', value: string, className: string) => {
+      const child = document.createElement(tag);
+      child.className = className;
+      child.textContent = value;
+      node.append(child);
+    };
+    try {
+      const response = await fetch(api.href);
+      if (!response.ok) throw new Error(`Webmention API returned ${response.status}`);
+      const payload = await response.json();
+      const mentions: any[] = Array.isArray(payload.children) ? payload.children : [];
+      if (!mentions.length) continue;
+      empty.hidden = true;
+      counter.textContent = String(mentions.length);
+      counter.hidden = false;
+      for (const mention of mentions) {
+        const item = document.createElement('div');
+        item.className = 'wm-item';
+        const authorName = typeof mention.author?.name === 'string' ? mention.author.name : 'Someone';
+        const name = authorName.slice(0, 100);
+        const destination = safeUrl(mention.url) ?? safeUrl(mention['wm-source']) ?? safeUrl(mention.author?.url);
+        const imageUrl = safeUrl(mention.author?.photo);
+        if (imageUrl) {
+          const img = document.createElement('img');
+          img.className = 'wm-avatar';
+          img.src = imageUrl;
+          img.alt = '';
+          img.width = 36;
+          img.height = 36;
+          img.loading = 'lazy';
+          img.referrerPolicy = 'no-referrer';
+          img.addEventListener('error', () => img.remove());
+          item.append(img);
+        }
+        const body = document.createElement('div');
+        body.className = 'wm-body';
+        const action = document.createElement('div');
+        action.className = 'wm-action';
+        if (destination) {
+          const a = document.createElement('a');
+          a.href = destination;
+          a.rel = 'nofollow ugc noopener noreferrer';
+          a.target = '_blank';
+          a.textContent = name;
+          action.append(a);
+        } else appendText(action, 'span', name, 'wm-author');
+        appendText(action, 'span', ` ${labelFor(String(mention['wm-property']))} this post`, 'wm-verb');
+        body.append(action);
+        const message = typeof mention.content?.text === 'string' ? mention.content.text.trim() : '';
+        if (message) appendText(body, 'p', message.slice(0, 350) + (message.length > 350 ? '…' : ''), 'wm-text');
+        item.append(body);
+        list.append(item);
+      }
+    } catch (error) {
+      // The site's content remains usable if webmention.io is unavailable.
+      empty.textContent = 'Webmentions are unavailable right now.';
+    }
+  }
+</script>
+<style>
+.webmentions { margin-top: 70px; padding-top: 25px; border-top: 1px solid var(--line); }
+.wm-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+h2 { font-size: 1.3rem; margin: 0; }
+.wm-count { background: var(--accent-soft); color: var(--accent); padding: 1px 8px; border-radius: 20px; font-size: .8rem; }
+.wm-badge { color: var(--muted); font-size: .75rem; }
+.wm-intro, .wm-empty { color: var(--muted); font-size: .9rem; }
+.wm-intro { margin: 0 0 22px; }
+.wm-list { display: flex; flex-direction: column; }
+.webmentions :global(.wm-item) { display: flex; gap: 13px; align-items: flex-start; padding: 15px 0; border-top: 1px solid var(--line); }
+.webmentions :global(.wm-avatar) { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.webmentions :global(.wm-body) { min-width: 0; }
+.webmentions :global(.wm-action) { font-size: .9rem; }
+.webmentions :global(.wm-action a) { color: var(--ink); font-weight: 680; }
+.webmentions :global(.wm-verb) { color: var(--muted); }
+.webmentions :global(.wm-text) { font-size: .88rem; line-height: 1.6; color: var(--muted); margin: 5px 0 0; overflow-wrap: anywhere; }
+.wm-footnote { margin-top: 15px; font-size: .78rem; }
+.wm-footnote a { color: var(--muted); }
+</style>

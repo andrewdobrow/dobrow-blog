@@ -1,153 +1,104 @@
-l---
+---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import PostList from '../components/PostList.astro';
+import { SITE_TITLE, SITE_DESCRIPTION, AVATAR_PATH } from '../consts';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-
-const latest = posts[0];
-const rest = posts.slice(1);
-
-function readingTime(body: string) {
-  const words = body?.split(/\s+/).length ?? 0;
-  return Math.max(1, Math.round(words / 200));
-}
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={`${SITE_TITLE} — ${SITE_DESCRIPTION}`} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
     <main>
+      <section class="intro h-card" aria-label="Introduction">
+        <div class="intro-copy">
+          <div class="eyebrow">Hello, I'm</div>
+          <h1 class="p-name">Andrew Dobrow<span class="period">.</span></h1>
+          <p class="intro-subtitle">Publisher. Builder. Writer. Curious about almost everything.</p>
+          <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a>, build things for the web, and occasionally write about what I've learned along the way.</p>
+          <p>This is my little corner of the internet — notes on projects, work, the things I care about, and whatever else is on my mind.</p>
+          <a href="/about/" class="inline-arrow">A little more about me <span aria-hidden="true">→</span></a>
+          <a class="u-url sr-only" href="https://dobrow.blog/">Personal website</a>
+        </div>
+        <div class="portrait" aria-label="Andrew Dobrow's profile photo">
+          <span class="initials" aria-hidden="true">AD</span>
+          <!-- Upload the photo to public/images/andrew-dobrow.jpg. Initials show until then. -->
+          <img class="u-photo" src={AVATAR_PATH} alt="Andrew Dobrow" width="152" height="152" onerror="this.remove()" />
+        </div>
+      </section>
 
-      {latest && (
-        <section class="hero">
-          {latest.data.tags?.[0] && (
-            <div class="tag">{latest.data.tags[0]}</div>
-          )}
-          <a href={`/blog/${latest.id}/`} class="hero-title-link">
-            <h1 class="hero-title">{latest.data.title}</h1>
-          </a>
-          <div class="meta">
-            Andrew Dobrow &nbsp;·&nbsp;
-            {latest.data.pubDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-            &nbsp;·&nbsp; {readingTime(latest.body)} min read
+      <section class="now-card" aria-labelledby="now-card-heading">
+        <div class="now-card-top">
+          <span class="eyebrow">Right now</span>
+          <span class="now-pulse" aria-hidden="true"></span>
+        </div>
+        <div class="now-card-bottom">
+          <div>
+            <h2 id="now-card-heading">What I'm up to lately</h2>
+            <p>Growing a local news site, refining its iPhone app, and figuring out what to build next.</p>
           </div>
-          {latest.data.description && (
-            <p class="excerpt">{latest.data.description}</p>
-          )}
-        </section>
-      )}
+          <a href="/now/" class="inline-arrow">Read my now page <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
 
-      <hr />
+      <section class="writing-section" aria-labelledby="writing-title">
+        <div class="section-heading">
+          <h2 id="writing-title">Recent writing</h2>
+          <a href="/blog/" class="inline-arrow">All posts <span aria-hidden="true">→</span></a>
+        </div>
+        <PostList posts={posts.slice(0, 5)} />
+        {posts.length === 0 && <p>Nothing published yet. Check back soon.</p>}
+      </section>
 
-      {rest.length > 0 && (
-        <>
-          <div class="section-label">All posts</div>
-          <div class="post-list">
-            {rest.map((post) => {
-              const d = post.data.pubDate;
-              const day = d.getDate();
-              const mon = d.toLocaleDateString('en-US', { month: 'short' });
-              return (
-                <a href={`/blog/${post.id}/`} class="post-item">
-                  <div class="post-text">
-                    {post.data.tags?.[0] && (
-                      <div class="tag">{post.data.tags[0]}</div>
-                    )}
-                    <div class="post-title">{post.data.title}</div>
-                    <div class="meta">{mon} {day} &nbsp;·&nbsp; {readingTime(post.body)} min read</div>
-                  </div>
-                  <div class="date-block">
-                    <div class="date-day">{day}</div>
-                    <div class="date-mon">{mon}</div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </>
-      )}
-
+      <section class="bottom-note" aria-labelledby="elsewhere-title">
+        <h2 id="elsewhere-title">Other places I spend my time</h2>
+        <p><a href="https://treasurecoast.today/">Treasure Coast Today ↗</a> · <a href="https://lowsignal.dev/">Low Signal Labs ↗</a> · <a href="https://github.com/andrewdobrow" rel="me">GitHub ↗</a></p>
+      </section>
     </main>
     <Footer />
   </body>
 </html>
-
 <style>
-  .hero { margin-bottom: 2.5rem; }
-
-  .tag {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-title-link { text-decoration: none; }
-
-  .hero-title {
-    font-size: 26px;
-    line-height: 1.35;
-    letter-spacing: -0.4px;
-    margin-bottom: 0.6rem;
-  }
-
-  .meta {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    color: #999;
-  }
-
-  .excerpt {
-    font-size: 17px;
-    color: #555;
-    margin-top: 0.75rem;
-    margin-bottom: 0;
-  }
-
-  .section-label {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-list { display: flex; flex-direction: column; gap: 1.75rem; }
-
-  .post-item {
-    display: grid;
-    grid-template-columns: 1fr 56px;
-    gap: 1rem;
-    align-items: start;
-    text-decoration: none;
-    color: inherit;
-  }
-  .post-item:hover .post-title { opacity: 0.6; }
-
-  .post-title {
-    font-family: Georgia, serif;
-    font-size: 17px;
-    line-height: 1.4;
-    letter-spacing: -0.2px;
-    color: #1a1a1a;
-    margin-bottom: 0.3rem;
-    transition: opacity 0.15s;
-  }
-
-  .date-block { text-align: right; font-family: Arial, sans-serif; }
-  .date-day { font-size: 20px; font-weight: 500; color: #1a1a1a; line-height: 1; }
-  .date-mon { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-top: 2px; }
+.intro { display: flex; align-items: flex-start; justify-content: space-between; gap: 36px; }
+.intro-copy { max-width: 575px; }
+.intro h1 { margin: 8px 0 10px; }
+.period { color: var(--accent); }
+.intro-subtitle { font-size: 1.08rem; color: var(--ink); font-weight: 610; line-height: 1.48; margin-bottom: 22px; }
+.intro-copy > p:not(.intro-subtitle) { color: #4f5c63; line-height: 1.77; font-size: .98rem; }
+.intro-copy > .inline-arrow { display: inline-block; margin-top: 4px; }
+.portrait { position: relative; flex: 0 0 152px; width: 152px; height: 152px; border-radius: 50%; background: #dcebe5; overflow: hidden; border: 4px solid #fff; outline: 1px solid var(--line); box-shadow: 0 6px 20px #243e3212; }
+.portrait .initials { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.1rem; color: var(--accent); font-weight: 740; }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.now-card { background: var(--soft); padding: 23px 27px; margin: 56px 0 59px; border: 1px solid var(--line); border-radius: 12px; }
+.now-card-top { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; }
+.now-pulse { height: 7px; width: 7px; border-radius: 50%; background: #65a88b; }
+.now-card-bottom { display: flex; justify-content: space-between; align-items: end; gap: 18px 26px; }
+.now-card h2 { font-size: 1.13rem; margin: 0 0 7px; }
+.now-card p { font-size: .91rem; line-height: 1.58; color: #64716f; margin: 0; max-width: 440px; }
+.writing-section { margin-bottom: 60px; }
+.bottom-note { padding-top: 25px; border-top: 1px solid var(--line); }
+.bottom-note h2 { font-size: 1.05rem; margin-bottom: 10px; }
+.bottom-note p { color: var(--muted); font-size: .88rem; }
+.bottom-note a { text-decoration: none; }
+@media (max-width: 680px) {
+  .intro { gap: 16px; }
+  .portrait { flex: 0 0 92px; width: 92px; height: 92px; margin-top: 5px; }
+  .portrait .initials { font-size: 1.45rem; }
+  .intro h1 { font-size: clamp(2.05rem, 7vw, 3rem); }
+  .now-card { margin: 43px 0 49px; padding: 20px; }
+  .now-card-bottom { display: block; }
+  .now-card-bottom > .inline-arrow { display: inline-block; margin-top: 12px; }
+}
+@media (max-width: 390px) {
+  .intro { position: relative; display: block; }
+  .intro h1 { padding-right: 82px; }
+  .portrait { position: absolute; width: 72px; height: 72px; top: 0; right: 0; }
+  .portrait .initials { font-size: 1.15rem; }
+}
 </style>

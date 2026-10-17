@@ -2,104 +2,30 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import PostList from '../../components/PostList.astro';
+import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-
-function readingTime(body: string) {
-  const words = body?.split(/\s+/).length ?? 0;
-  return Math.max(1, Math.round(words / 200));
-}
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 <!doctype html>
 <html lang="en">
-  <head>
-    <BaseHead title={`Writing — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-  </head>
+  <head><BaseHead title={`Blog — ${SITE_TITLE}`} description="All the essays, updates, and occasional thoughts by Andrew Dobrow." /></head>
   <body>
     <Header />
     <main>
-      <div class="section-label">All posts</div>
-      <div class="post-list">
-        {posts.map((post) => {
-          const d = post.data.pubDate;
-          const day = d.getDate();
-          const mon = d.toLocaleDateString('en-US', { month: 'short' });
-          return (
-            <a href={`/blog/${post.id}/`} class="post-item">
-              <div class="post-text">
-                {post.data.tags?.[0] && (
-                  <div class="tag">{post.data.tags[0]}</div>
-                )}
-                <div class="post-title">{post.data.title}</div>
-                <div class="meta">{mon} {day} &nbsp;·&nbsp; {readingTime(post.body)} min read</div>
-              </div>
-              <div class="date-block">
-                <div class="date-day">{day}</div>
-                <div class="date-mon">{mon}</div>
-              </div>
-            </a>
-          );
-        })}
-      </div>
+      <header class="page-heading">
+        <div class="eyebrow">The archive</div>
+        <h1>Blog</h1>
+        <p>Writing about building things, independent publishing, work, and life. Sometimes thoughtfully. Sometimes just to get it out of my head.</p>
+      </header>
+      <PostList posts={posts} />
+      {posts.length === 0 && <p>No posts just yet.</p>}
+      <p class="feed-invite">Want to keep up? <a href="/rss.xml">Subscribe to the RSS feed ↗</a></p>
     </main>
     <Footer />
   </body>
 </html>
-
 <style>
-  .section-label {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-list { display: flex; flex-direction: column; gap: 1.75rem; }
-
-  .post-item {
-    display: grid;
-    grid-template-columns: 1fr 56px;
-    gap: 1rem;
-    align-items: start;
-    text-decoration: none;
-    color: inherit;
-  }
-  .post-item:hover .post-title { opacity: 0.6; }
-
-  .tag {
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #999;
-    margin-bottom: 0.35rem;
-  }
-
-  .post-title {
-    font-family: Georgia, serif;
-    font-size: 17px;
-    line-height: 1.4;
-    letter-spacing: -0.2px;
-    color: #1a1a1a;
-    margin-bottom: 0.3rem;
-    transition: opacity 0.15s;
-  }
-
-  .meta {
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-    color: #999;
-  }
-
-  .date-block { text-align: right; font-family: Arial, sans-serif; }
-  .date-day { font-size: 20px; font-weight: 500; color: #1a1a1a; line-height: 1; }
-  .date-mon { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-top: 2px; }
+.feed-invite { font-size: .88rem; color: var(--muted); margin-top: 33px; }
 </style>
