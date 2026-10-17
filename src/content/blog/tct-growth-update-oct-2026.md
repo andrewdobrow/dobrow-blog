@@ -19,9 +19,9 @@ TCT has evolved into a much more complex project than I ever could have imagined
 
 - **Geographic intelligence**: The TCT engine is now much better at distinguishing between locations and properly classifying them.
 
--**Newsworthiness and prioritization**: Articles are ranked by relevance, importance, urgency, and reader interest, and are properly displayed based on that ranking.
+- **Newsworthiness and prioritization**: Articles are ranked by relevance, importance, urgency, and reader interest, and are properly displayed based on that ranking.
 
--**Duplicate detection**: This was one of the biggest issues I faced early on. Relying solely on AI resulted in duplicate articles appearing constantly. Basic fuzzy keyword matching was not enough. Now, duplicates are avoided deterministically using ongoing identity markers.
+- **Duplicate detection**: This was one of the biggest issues I faced early on. Relying solely on AI resulted in duplicate articles appearing constantly. Basic fuzzy keyword matching was not enough. Now, duplicates are avoided deterministically using ongoing identity markers.
 
 - **Developing stories**: Labeling each article with identity markers allows the engine to update developing stories, instead of generating new articles for every update.
 
@@ -43,11 +43,11 @@ On August 1, I launched our newsletter, the TCT Morning Brief, a daily morning e
 
 ## Monetization
 
--**Subscriptions**: Users now get one free article per month. After their free article, they are paywalled. Subscriptions are currently $4.99 per month or $49 per year, $1 for the first month.
+- **Subscriptions**: Users now get one free article per month. After their free article, they are paywalled. Subscriptions are currently $4.99 per month or $49 per year, $1 for the first month.
 
--**Advertising**: We now display ads via Mediavine. I try to keep it reasonable. I despise ads that severely interfere with the reading experience.
+- **Advertising**: We now display ads via Mediavine. I try to keep it reasonable. I despise ads that severely interfere with the reading experience.
 
--**Sponsored post and event spots**: When event hosts and company owners reach out to us (which they have started to do the last couple of weeks), we now have a price menu for sponsored offerings.
+- **Sponsored post and event spots**: When event hosts and company owners reach out to us (which they have started to do the last couple of weeks), we now have a price menu for sponsored offerings.
 
 ## There's an App for That
 
