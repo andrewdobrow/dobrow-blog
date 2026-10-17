@@ -19,7 +19,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
       <section class="intro h-card" aria-label="Introduction">
         <div class="intro-copy">
           <div class="eyebrow">Hello, I'm</div>
-          <h1 class="p-name">Andrew Dobrow<span class="period">.</span></h1>
+          <h1 class="p-name">Andrew Dobrow</h1>
           <p class="intro-subtitle">Publisher. Builder. Writer. Curious about almost everything.</p>
           <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a>, build things for the web, and occasionally write about what I've learned along the way.</p>
           <p>This is my little corner of the internet — notes on projects, work, the things I care about, and whatever else is on my mind.</p>
@@ -28,8 +28,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
         </div>
         <div class="portrait" aria-label="Andrew Dobrow's profile photo">
           <span class="initials" aria-hidden="true">AD</span>
-          <!-- Upload the photo to public/images/andrew-dobrow.jpg. Initials show until then. -->
-          <img class="u-photo" src={AVATAR_PATH} alt="Andrew Dobrow" width="152" height="152" onerror="this.remove()" />
+          <img class="u-photo" src={AVATAR_PATH} alt="Photo of Andrew Dobrow" width="152" height="152" loading="eager" decoding="async" onerror="this.remove()" />
         </div>
       </section>
 
@@ -68,7 +67,6 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 .intro { display: flex; align-items: flex-start; justify-content: space-between; gap: 36px; }
 .intro-copy { max-width: 575px; }
 .intro h1 { margin: 8px 0 10px; }
-.period { color: var(--accent); }
 .intro-subtitle { font-size: 1.08rem; color: var(--ink); font-weight: 610; line-height: 1.48; margin-bottom: 22px; }
 .intro-copy > p:not(.intro-subtitle) { color: #4f5c63; line-height: 1.77; font-size: .98rem; }
 .intro-copy > .inline-arrow { display: inline-block; margin-top: 4px; }
