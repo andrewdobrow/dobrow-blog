@@ -1,7 +1,7 @@
 ---
 title: "Apple Has an App Review Problem"
-description: "Something has to change"
-pubDate: 2026-10-16
+description: "Something has to change."
+pubDate: 2026-10-18
 tags: ['Apple']
 ---
 Patience is a virtue, but not one of mine.
