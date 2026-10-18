@@ -22,7 +22,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
           <h1 class="p-name">Andrew Dobrow</h1>
           <p class="intro-subtitle">Publisher. Builder. Writer. Curious about almost everything.</p>
           <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a>, build things for the web, and occasionally write about what I've learned along the way.</p>
-          <p>This is my little corner of the internet — notes on projects, work, the things I care about, and whatever else is on my mind.</p>
+          <p>This is my little corner of the internet. Notes on projects, work, the things I care about, and whatever else is on my mind.</p>
           <a href="/about/" class="inline-arrow">A little more about me <span aria-hidden="true">→</span></a>
           <a class="u-url sr-only" href="https://dobrow.blog/">Personal website</a>
         </div>
@@ -52,10 +52,6 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
         {posts.length === 0 && <p>Nothing published yet. Check back soon.</p>}
       </section>
 
-      <section class="bottom-note" aria-labelledby="elsewhere-title">
-        <h2 id="elsewhere-title">Other places I spend my time</h2>
-        <p><a href="https://treasurecoast.today/">Treasure Coast Today ↗</a> · <a href="https://lowsignal.dev/">Low Signal Labs ↗</a> · <a href="https://github.com/andrewdobrow" rel="me">GitHub ↗</a></p>
-      </section>
     </main>
     <Footer />
   </body>
