@@ -21,26 +21,23 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
           <div class="eyebrow">Hello, I'm</div>
           <h1 class="p-name">Andrew Dobrow</h1>
           <p class="intro-subtitle">Publisher. Builder. Writer. Curious about almost everything.</p>
-          <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a> and occasionally write about what I've learned along the way.</p>
-          <p>This is my little corner of the internet. Notes on projects, work, the things I care about, and whatever else is on my mind.</p>
+          <p>I'm based on Florida's Treasure Coast, where I run <a href="https://treasurecoast.today/">Treasure Coast Today</a>, build things for the web, and occasionally write about what I've learned along the way.</p>
+          <p>This is my little corner of the internet — notes on projects, work, the things I care about, and whatever else is on my mind.</p>
           <a href="/about/" class="inline-arrow">A little more about me <span aria-hidden="true">→</span></a>
           <a class="u-url sr-only" href="https://dobrow.blog/">Personal website</a>
         </div>
         <div class="portrait" aria-label="Andrew Dobrow's profile photo">
           <span class="initials" aria-hidden="true">AD</span>
-          <img class="u-photo" src={AVATAR_PATH} alt="Photo of Andrew Dobrow" width="152" height="152" loading="eager" decoding="async" onerror="this.remove()" />
+          <!-- Profile photo is stored at public/images/andrew-dobrow.jpg. -->
+          <img class="u-photo" src={AVATAR_PATH} alt="Andrew Dobrow" width="152" height="152" onerror="this.remove()" />
         </div>
       </section>
 
       <section class="now-card" aria-labelledby="now-card-heading">
-        <div class="now-card-top">
-          <span class="eyebrow">Right now</span>
-          <span class="now-pulse" aria-hidden="true"></span>
-        </div>
         <div class="now-card-bottom">
           <div>
             <h2 id="now-card-heading">What I'm up to lately</h2>
-            <p>Growing a Treasure Coast Today, a next-gen local news site, releasing its iPhone app, and figuring out what to build next.</p>
+            <p>Growing a local news site, refining its iPhone app, and figuring out what to build next.</p>
           </div>
           <a href="/now/" class="inline-arrow">Read my now page <span aria-hidden="true">→</span></a>
         </div>
@@ -55,7 +52,10 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
         {posts.length === 0 && <p>Nothing published yet. Check back soon.</p>}
       </section>
 
-    
+      <section class="bottom-note" aria-labelledby="elsewhere-title">
+        <h2 id="elsewhere-title">Other places I spend my time</h2>
+        <p><a href="https://treasurecoast.today/">Treasure Coast Today ↗</a> · <a href="https://lowsignal.dev/">Low Signal Labs ↗</a> · <a href="https://github.com/andrewdobrow" rel="me">GitHub ↗</a></p>
+      </section>
     </main>
     <Footer />
   </body>
@@ -71,8 +71,6 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 .portrait .initials { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.1rem; color: var(--accent); font-weight: 740; }
 .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .now-card { background: var(--soft); padding: 23px 27px; margin: 56px 0 59px; border: 1px solid var(--line); border-radius: 12px; }
-.now-card-top { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; }
-.now-pulse { height: 7px; width: 7px; border-radius: 50%; background: #65a88b; }
 .now-card-bottom { display: flex; justify-content: space-between; align-items: end; gap: 18px 26px; }
 .now-card h2 { font-size: 1.13rem; margin: 0 0 7px; }
 .now-card p { font-size: .91rem; line-height: 1.58; color: #64716f; margin: 0; max-width: 440px; }
