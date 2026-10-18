@@ -1,5 +1,5 @@
 ---
-title: "Apple Has an App Review Problem"
+title: "Apple Has a Developer Experience Problem"
 description: "Something has to change."
 pubDate: 2026-10-18
 tags: ['Apple']
