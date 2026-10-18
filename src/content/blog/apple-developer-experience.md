@@ -29,7 +29,7 @@ As a result, I was forced to test my app through an ad hoc method. Not the bigge
 
 Over the past two weeks I have opened up two separate tickets for unrelated issues and I have received zero response. None.
 
-My first attempt was due to the TestFlight issue I mentioned earlier. Due to this being an issue that only Developer support could solve, the lack of response was extremely disheartening. What if I didn't know what ad hoc testing was even a thing? Would I just be stuck?
+My first attempt was due to the TestFlight issue I mentioned earlier. Due to this being an issue that only Developer support could solve, the lack of response was extremely disheartening. What if I didn't know that ad hoc testing was an option? Would I just be stuck?
 
 My second attempt was two days ago, just trying to get a better understanding on the timeline for app approvals. Not an unreasonable request. As you might have guessed, complete silence.
 
