@@ -19,7 +19,7 @@ I understand that Apple is no doubt being bombarded by AI slop submissions and t
 
 ## Access to TestFlight
 
-TestFlight straight up refused to work or my newest app. Whenever I tried to install the build on my phone, I was greeted with an error message stating that the app could not be installed. 
+TestFlight straight up refused to work for my newest app. Whenever I tried to install the build on my phone, I was greeted with an error message stating that the app could not be installed. 
 
 After searching for a possible cause, it became clear that this was an Apple backend issue, and a common one at that. The only way to fix this issue is to contact Apple Developer support and have them fix it on their end, so that's exactly what I did. We'll get more into that a little later.
 
