@@ -5,11 +5,11 @@ pubDate: 2026-10-29
 tags: ['books']
 ---
 
-I fell in love with music when I was 6 years old. Calling it a hobby doesn't even begin to describe my obsession. I live and breath music. From my first cassette (The Sign by Ace of Base), to my first CD (Dookie by Green Day, my teenage years as a vocalist in several bands. 
+I fell in love with music when I was 6 years old. Describing my obsession as a hobby doesn't even begin to describe it. From my first cassette (The Sign by Ace of Base), to my first CD (Dookie by Green Day), to my teenage years as a vocalist in several bands, to my constant hunt for music I haven't heard, it has been a constant presence in my day-to-day life.
 
-Anyone who has even a passing interest in rock music of the past 40 years has been touched by the influence of Dave Grohl. From his early days with seminal punk band Scream, his rise with Nirvana, and his cementing as a alternative rock legend with the Foo Fighters, Grohl was a formative figure in building the alt-rock scene.
+Even if you don't have an obsessive relationship with music like I do, anyone who has any interest in rock music from the past 30 years has been touched by Dave Grohl's influence. From his early days with seminal punk band Scream, his rise with Nirvana, his cementing as a alternative rock legend with the Foo Fighters, not to mention his work with Queens of the Stone Age, Grohl is a transformative figure in the alt-rock scene.
 
-So, you could imagine my excitement to dig into Dave's memoir, [The Storyteller](tab:https://www.goodreads.com/book/show/57648017-the-storyteller). I anticipated a tell-all, emotional outpouring about his life as a rock superstar. Instead, what I got was basically a thin narration of scattered events, written from what felt like someone viewing things from the outside, instead of living through the intesity themself.
+So, you could imagine my excitement to dig into Dave's memoir, [The Storyteller](tab:https://www.goodreads.com/book/show/57648017-the-storyteller). I anticipated a tell-all, emotional outpouring about his life as a rock superstar. Instead, what I got was basically a thin narration of scattered events, written from what felt like someone viewing things from the outside, instead of living through the insanity themself.
 
 Dave reveals little emotional depth, and the moments where emotional depth peeks through, it's mostly the same platitudes repeated ad-nauseam about how grateful and lucky he is.
 
@@ -17,6 +17,6 @@ The Storyteller is basically a coming-of-age tale in which an Everyday Joe from 
 
 As the perfect friend, perfect son, perfect husband, and perfect father, Dave Grohl reinforces just how thankful he is, though he never really digs below the surface.  
   
-The Storyteller was fine, but Grohl displays shockingly little self-awareness for a man who has lived the life that he has. Much of the book feels like branding for a "cool dad" image that's he's desperately trying to cultivate in his later years. The best parts center around his experiences on the road in his youth. The rest leave a void that remains empty through the very end.
+The Storyteller is... fine, but Grohl displays shockingly little self-awareness for a man who has lived the life that he has. Much of the book feels like branding for a "cool dad" image that's he's desperately trying to cultivate in his later years. The best parts center around his experiences on the road in his youth. The rest leave a void that remains empty through the very end.
 
 3.25/5
