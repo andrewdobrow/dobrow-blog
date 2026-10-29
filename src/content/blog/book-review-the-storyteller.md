@@ -17,6 +17,6 @@ The Storyteller is basically a coming-of-age tale in which an Everyday Joe from 
 
 As the perfect friend, perfect son, perfect husband, and perfect father, Dave Grohl reinforces just how thankful he is, though he never really digs below the surface.  
   
-The Storyteller is... fine, but Grohl displays shockingly little self-awareness for a man who has lived the life that he has. Much of the book feels like branding for a "cool dad" image that's he's desperately trying to cultivate in his later years. The best parts center around his experiences on the road in his youth. The rest leave a void that remains empty through the very end.
+The Storyteller is... fine, but Grohl displays shockingly little self-awareness for a man who has lived the life that he has. Much of the book feels like branding for a "cool dad" image that's he's desperately trying to cultivate in his later years. The best parts center around his experiences on the road in his youth. The rest leaves a void that remains unfilled through the very end.
 
 3.25/5
