@@ -5,9 +5,9 @@ pubDate: 2026-10-29
 tags: ['books']
 ---
 
-I fell in love with music when I was 6 years old. Describing my obsession as a hobby doesn't even begin to describe it. From my first cassette (The Sign by Ace of Base), to my first CD (Dookie by Green Day), to my teenage years as a vocalist in several bands, to my constant hunt for music I haven't heard, it has been a constant presence in my day-to-day life.
+I fell in love with music when I was 6 years old. Describing my relationship with music as a hobby doesn't cut it. From my first cassette (The Sign by Ace of Base), to my first CD (Dookie by Green Day), to my teenage years as a vocalist in several bands, it has been a constant presence in my day-to-day life.
 
-Even if you don't have an obsessive relationship with music like I do, anyone who has any interest in rock music from the past 30 years has been touched by Dave Grohl's influence. From his early days with seminal punk band Scream, his rise with Nirvana, his cementing as a alternative rock legend with the Foo Fighters, not to mention his work with Queens of the Stone Age, Grohl is a transformative figure in the alt-rock scene.
+Even if you don't have an borderline obsessive relationship with music, anyone who has any interest in rock music from the past 30 years has been touched by Dave Grohl's influence. From his early days with seminal punk band Scream, his rise with Nirvana, his cementing as a alternative rock legend with the Foo Fighters, not to mention his work with Queens of the Stone Age, Grohl is a transformative figure in the alt-rock scene.
 
 So, you could imagine my excitement to dig into Dave's memoir, [The Storyteller](tab:https://www.goodreads.com/book/show/57648017-the-storyteller). I anticipated a tell-all, emotional outpouring about his life as a rock superstar. Instead, what I got was basically a thin narration of scattered events, written from what felt like someone viewing things from the outside, instead of living through the insanity themself.
 
