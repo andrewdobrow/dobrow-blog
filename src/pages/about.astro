@@ -58,6 +58,25 @@ import { SITE_TITLE } from '../consts';
   </a>
   <a href="https://webring.rewildtheweb.org/next?from=dobrow.blog" target="_top">next &#8594;</a>
 
+<!-- Rewild the Web Webring -->
+  <div class="webring-item">
+    <a href="https://webring.rewildtheweb.org/prev?from=dobrow.blog" target="_top">← prev</a>
+
+    <a href="https://rewildtheweb.org/webring/" target="_top">
+      <img
+        src="https://rewildtheweb.org/webring-badge.gif"
+        alt="Rewild the Web Webring"
+        width="88"
+        height="31"
+        class="webring-badge"
+      />
+    </a>
+
+    <a href="https://webring.rewildtheweb.org/next?from=dobrow.blog" target="_top">next →</a>
+  </div>
+
+</nav>
+
 
 
 <h2 class="now-heading">
@@ -66,27 +85,32 @@ import { SITE_TITLE } from '../consts';
 
 </article>
    <style>
-  .webring-links {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 16px 0 40px;
-    padding: 0;
-    list-style: none;
-  }
+ .webring-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 20px 0 40px;
+  padding: 0;
+}
 
-  .webring-links a {
-    display: inline-block;
-  }
+.webring-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
 
-  .now-heading {
-    display: block;
-    margin-top: 40px;
-    margin-bottom: 24px;
-    padding: 0;
-    list-style: none;
-    font-size: 1.4rem;
-    font-weight: 600;
-    line-height: 1.5;
-  }
+.webring-item a {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.webring-badge {
+  display: block;
+  width: 88px;
+  height: 31px;
+  image-rendering: pixelated;
+}
 </style>
