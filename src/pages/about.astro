@@ -34,12 +34,43 @@ import { SITE_TITLE } from '../consts';
 </ul>
 
 <h2>Webrings</h2>
-        
-          <li><a href="https://hotlinewebring.club/dobrow/previous">←</a> <a href="https://hotlinewebring.club/">HOTLINE</a> <a href="https://hotlinewebring.club/dobrow/next">→</a></li>
-        
-        <p>You can also see <a href="/now/">what I'm up to right now</a>.</p>
-      </article>
+
+<nav class="webring-links" aria-label="Webrings">
+  <a href="https://hotlinewebring.club/dobrow/previous">←</a>
+  <a href="https://hotlinewebring.club/">HOTLINE</a>
+  <a href="https://hotlinewebring.club/dobrow/next">→</a>
+</nav>
+
+<h2 class="now-heading">
+  You can also see <a href="/now/">what I'm up to right now</a>.
+</h2>
+
+</article>
     </main>
     <Footer />
   </body>
 </html>
+
+.webring-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.webring-links a {
+  display: inline-block;
+}
+
+.now-heading {
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  padding: 0;
+  list-style: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
