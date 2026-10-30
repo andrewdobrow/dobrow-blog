@@ -66,14 +66,14 @@ import { SITE_TITLE } from '../consts';
     <a href="https://webring.rewildtheweb.org/next?from=dobrow.blog" target="_top">next →</a>
   </div>
 
-  <div class="webring">
+  <div class="webring-item">
       <a href="https://xn--sr8hvo.ws/previous">←</a>
       <a href="https://xn--sr8hvo.ws">An IndieWeb Webring</a>
       <span>🕸💍</span>
       <a href="https://xn--sr8hvo.ws/next">→</a>
     </div>
 
-<div id="webmasteringbtn"><a href="https://webmasterwebring.netlify.app?YOURSLUG-previous">&lt;</a><a href="https://webmasterwebring.netlify.app"><img src="https://file.garden/ZrZSgsrYfQXsO7QH/ww/btn.png" width="88" height="31"></a><a href="https://webmasterwebring.netlify.app?YOURSLUG-random" style="font-size: 1.5rem;">?</a> <a href="https://webmasterwebring.netlify.app?YOURSLUG-next">&gt;</a></div>
+<div id="webmasteringbtn" class="webring-item"><a href="https://webmasterwebring.netlify.app?YOURSLUG-previous">&lt;</a><a href="https://webmasterwebring.netlify.app"><img src="https://file.garden/ZrZSgsrYfQXsO7QH/ww/btn.png" width="88" height="31"></a><a href="https://webmasterwebring.netlify.app?YOURSLUG-random" style="font-size: 1.5rem;">?</a> <a href="https://webmasterwebring.netlify.app?YOURSLUG-next">&gt;</a></div>
 
 </nav>
 
@@ -115,6 +115,27 @@ import { SITE_TITLE } from '../consts';
   width: 88px;
   height: 31px;
   image-rendering: pixelated;
+}
+
+#webmasteringbtn {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#webmasteringbtn a {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#webmasteringbtn img {
+  display: block;
+  width: 88px;
+  height: 31px;
 }
 </style>
 
