@@ -76,18 +76,41 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
 .bottom-note p { color: var(--muted); font-size: .88rem; }
 .bottom-note a { text-decoration: none; }
 @media (max-width: 680px) {
-  .intro { gap: 16px; }
-  .portrait { flex: 0 0 92px; width: 92px; height: 92px; margin-top: 5px; }
-  .portrait .initials { font-size: 1.45rem; }
+  /* Let the name span the full width. Place the photo alongside the lead,
+     then let the paragraphs beneath span the entire reading column. */
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 96px;
+    column-gap: 18px;
+    row-gap: 0;
+    align-items: start;
+  }
+  .intro-copy { display: contents; }
+  .intro-copy > .eyebrow,
+  .intro-copy > h1,
+  .intro-copy > p:not(.intro-subtitle),
+  .intro-copy > .inline-arrow { grid-column: 1 / -1; }
+  .intro-copy > .intro-subtitle { grid-column: 1; }
+  .intro-copy > .inline-arrow { justify-self: start; }
   .intro h1 { font-size: clamp(2.05rem, 7vw, 3rem); }
+  .portrait {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: center;
+    justify-self: end;
+    flex: none;
+    width: 96px;
+    height: 96px;
+    margin: 0 0 22px;
+  }
+  .portrait .initials { font-size: 1.45rem; }
   .now-card { margin: 43px 0 49px; padding: 20px; }
   .now-card-bottom { display: block; }
   .now-card-bottom > .inline-arrow { display: inline-block; margin-top: 12px; }
 }
 @media (max-width: 390px) {
-  .intro { position: relative; display: block; }
-  .intro h1 { padding-right: 82px; }
-  .portrait { position: absolute; width: 72px; height: 72px; top: 0; right: 0; }
-  .portrait .initials { font-size: 1.15rem; }
+  .intro { grid-template-columns: minmax(0, 1fr) 82px; column-gap: 14px; }
+  .portrait { width: 82px; height: 82px; }
+  .portrait .initials { font-size: 1.25rem; }
 }
 </style>
