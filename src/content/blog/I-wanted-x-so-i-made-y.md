@@ -1,5 +1,5 @@
 ---
-title: "The 'I Wanted X, so I made Y' Curse"
+title: "The 'I Wanted X, so I Made Y' Curse"
 description: "Stop trusting LLMs to write your copy."
 pubDate: 2026-11-01
 tags: ['marketing']
@@ -9,6 +9,6 @@ I'm not against vibecoding. In fact, it's awesome that AI allows non-technical m
 
 I draw the line at AI-written marketing content. Not because I'm against efficiency, but because AI is absolutely terrible at it.
 
-LLMs love the "I wanted X, so I made Y" formula. If you ask AI to craft you a marketing messaging without any other direction, you're practically guaranteed to be served with this hackneyed startegy. A quick survey of vibecoders' product announcements shows just how common this copywriting path has become.
+LLMs love the "I wanted X, so I made Y" formula. If you ask AI to craft your marketing messaging without any other direction, you're practically guaranteed to be served with this hack strategy. A quick survey of vibecoders' product announcements shows just how common this copywriting path has become.
 
 Using this line has become the easiest way to ensure people ignore your product. It doesn't make you stand out. It doesn't tell a proper story. It just tells us that you had AI write your copy for you. People are not stupid and they can smell inauthenticity from a million keystrokes away.
