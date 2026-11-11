@@ -9,7 +9,7 @@ I fell in love with music when I was 6 years old. Describing my relationship wit
 
 Even if you don't have an borderline obsessive relationship with music, anyone who has any interest in rock music from the past 30 years has been touched by Dave Grohl's influence. From his early days with seminal punk band Scream, his rise with Nirvana, his cementing as a alternative rock legend with the Foo Fighters, not to mention his work with Queens of the Stone Age, Grohl is a transformative figure in the alt-rock scene.
 
-So, you could imagine my excitement to dig into Dave's memoir, [The Storyteller](tab:https://www.goodreads.com/book/show/57648017-the-storyteller). I anticipated a tell-all, emotional outpouring about his life as a rock superstar. Instead, what I got was basically a thin narration of scattered events, written from what felt like someone viewing things from the outside, instead of living through the insanity themself.
+So, you could imagine my excitement to dig into Dave's memoir, [The Storyteller](https://www.goodreads.com/book/show/57648017-the-storyteller). I anticipated a tell-all, emotional outpouring about his life as a rock superstar. Instead, what I got was basically a thin narration of scattered events, written from what felt like someone viewing things from the outside, instead of living through the insanity themself.
 
 Dave reveals little emotional depth, and the moments where emotional depth peeks through, it's mostly the same platitudes repeated ad-nauseam about how grateful and lucky he is.
 

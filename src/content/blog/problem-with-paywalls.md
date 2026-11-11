@@ -5,7 +5,7 @@ pubDate: 2026-10-30
 tags: ['TCT']
 ---
 
-Over the last few days I've made a major shift in [Treasure Coast Today's](tab:https://treasurecoast.today) monetization strategy.
+Over the last few days I've made a major shift in [Treasure Coast Today's](https://treasurecoast.today) monetization strategy.
 
 My initial attempt at monetization involved a combination of a paywall (with a couple free articles per month) and light advertising. I believed that our readers would see the value in our work and shell out a few bucks a month to experience unlimited access to all the articles and an ad-free experience.
 

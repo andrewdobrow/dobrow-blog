@@ -5,7 +5,7 @@ pubDate: 2026-10-16
 tags: ['TCT']
 ---
 
-A lot has happened on the [Treasure Coast Today](tab:https://treasurecoast.today) front, and I'm happy to report it's universally positive. I got a kick out of reading the last few blog posts, especially [On Giving Up](tab:https://dobrow.blog/blog/on-giving-up/). My apparent pessimism seems charming in retrospect, knowing how motivated I am and how focused I've been on making this project a success.
+A lot has happened on the [Treasure Coast Today](https://treasurecoast.today) front, and I'm happy to report it's universally positive. I got a kick out of reading the last few blog posts, especially [On Giving Up](https://dobrow.blog/blog/on-giving-up/). My apparent pessimism seems charming in retrospect, knowing how motivated I am and how focused I've been on making this project a success.
 
 I haven't done a great job of documenting the changes to TCT over the last few months, so I don't even remember where it stood the last time I posted. All I know is that it's a completely different beast, especially on the backend.
 
