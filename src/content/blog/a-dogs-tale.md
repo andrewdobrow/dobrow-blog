@@ -5,15 +5,17 @@ pubDate: 2026-11-12
 tags: ['Rosie']
 ---
 
-<div style="text-align: center; margin: 2rem 0;">
+
+<div style="display: flex; justify-content: center; width: 100%; margin: 2rem 0;">
   <img
     src="/images/tired-rosie.png"
     alt="Tired Rosie"
-    style="max-width: 100%; width: 450px; height: auto; border-radius: 8px;"
+    style="display: block; width: 450px; max-width: 100%; height: auto; margin: 0 auto;"
   />
 </div>
 
-It has been nearly four years since my son (nine years old at the time) and were forced to move out of our family home down to Florida; forced to leave behind our family dog, who stayed with my brother and sister-in-law. 
+
+It has been nearly four years since my son (nine years old at the time) and I were forced to move out of our family home down to Florida; forced to leave behind our family dog, who was then relegated to stay with my brother and sister-in-law. 
 
 When we said goodbye, the intention was to return within two weeks. We had no idea that this would be the last time we would see our beloved Rosie for years. While we were down in Florida, an unforeseen family event, to put it mildly, led us no choice but to move south permanently.
 
